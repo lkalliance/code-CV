@@ -18,17 +18,8 @@ router.get('/login', (req, res) => {
   try {
     // Render the login page
 
-    // create the rendering assets
-    const userInfo = {
-      username: req.session.username,
-      userId: req.session.userId,
-      loggedIn: req.session.loggedIn
-    }
-    const css = { url: '/css/login.css' }
-    const today = new Date();
-    const currentYear = { year: today.getFullYear() }
-
-    res.render('login', { css, userInfo, currentYear });
+    // for login page
+    res.redirect('/');
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
