@@ -22,6 +22,9 @@ Project.init(
     url: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isUrl: true
+      }
     },
     image: {
       type: DataTypes.STRING,
