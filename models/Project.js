@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const bcrypt = require("bcrypt");
 
-class Movie extends Model {}
+class Project extends Model {}
 
-Movie.init(
+Project.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,26 +11,34 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    imdb_id: {
+    title: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    title: {
+    description: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    url: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
+    featured: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    }
   },
   {
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "movie",
+    modelName: "project",
   }
 );
 
-module.exports = Movie;
+module.exports = Project;
