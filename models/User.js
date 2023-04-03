@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
 
-class Movie extends Model {}
+class User extends Model {}
 
-Movie.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,26 +12,40 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    imdb_id: {
+    user_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "user",
+        key: "id",
+      },
+    },
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    title: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     image: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
+    hooks: {
+      async beforeCreate(newUserData) {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+    },
     sequelize,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "movie",
+    modelName: "user",
   }
 );
 
-module.exports = Movie;
+module.exports = User;

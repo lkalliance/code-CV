@@ -1,41 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Project } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    // Render the main page
-    console.log(`
-    
-    
-    
-    
-    Rendering the home page
-    
-    
-    
-    
-    
-    `);
     const today = new Date;
     const year = { year: today.getFullYear() };
-    console.log(`
-    
-    
-    
-    
-    
-    
-    Year is ${year.year}
-    
-    
-    
-    
-    
-    
-    `)
-
     // create the rendering assets
-    res.render('homepage', { year });
+    res.render('createProject', { year });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
