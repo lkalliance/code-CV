@@ -1,0 +1,11 @@
+#header {
+    position: fixed;
+}
+
+header img {
+    width: 150px;
+}
+
+section {
+    border: 1px solid red;
+}
