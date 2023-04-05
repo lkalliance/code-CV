@@ -12,14 +12,6 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "user",
-        key: "id",
-      },
-    },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -27,11 +19,7 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    }
   },
   {
     hooks: {

@@ -3,8 +3,7 @@ const { Project } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-
-    // create the rendering assets
+    console.log(req.body);
     res.json({ message: 'got it' });
   } catch (err) {
     console.log(err);
