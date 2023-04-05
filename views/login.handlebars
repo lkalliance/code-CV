@@ -11,6 +11,8 @@
     
 </form>
 
+{{#if exists.exists}}
+{{else}}
 <h1>Create</h1>
 <form id="create-form">
     <label for "create-username">Username</label>
@@ -19,6 +21,7 @@
     <input type="password" id="create-password" />
     <button type="submit" id="login-button">Create</button>
 </form>
+{{/if}}
 
 <a href="/api/users/logout">Log out</a>
 
