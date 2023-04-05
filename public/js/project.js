@@ -21,4 +21,7 @@ projectForm.on("submit", async (e) => {
     const answer = await sent.json()
 
     console.log(answer);
+
+    $('input').val('');
+    $('textarea').val('');
 })

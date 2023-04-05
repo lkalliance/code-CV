@@ -1,41 +1,19 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Project } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
     // Render the main page
-    console.log(`
-    
-    
-    
-    
-    Rendering the home page
-    
-    
-    
-    
-    
-    `);
     const today = new Date;
     const year = { year: today.getFullYear() };
-    console.log(`
-    
-    
-    
-    
-    
-    
-    Year is ${year.year}
-    
-    
-    
-    
-    
-    
-    `)
+
+    const projectData = await Project.findAll({
+      attributes: ['title', 'description', 'url', 'image']
+    })
+    const projects = await projectData.get({ plain: true })
 
     // create the rendering assets
-    res.render('homepage', { year });
+    res.render('homepage', { year, projects });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -43,12 +21,32 @@ router.get('/', async (req, res) => {
 }); 
 
 
-router.get('/login', (req, res) => {
+router.get('/login', async (req, res) => {
   try {
     // Render the login page
+    const today = new Date;
+    const year = { year: today.getFullYear() };
+    const userInfo = {
+      userId: req.session.userId,
+      username: req.session.username
+    }
+
+    // Does user 1 exist?
+    const userData = await User.findByPk(1, {
+      attributes: ['id']
+    });
+
+    const exists = {};
+
+    if (!userData) {
+      exists.exists = false;
+    } else {
+      const user = await (userData.get({ plain: true }))
+      exists.exists = (user.id == 1)
+    }
 
     // for login page
-    res.redirect('/');
+    res.render('login', { year, userInfo, exists });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

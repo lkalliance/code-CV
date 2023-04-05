@@ -3,6 +3,11 @@ const { User, Project } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
+    // no one but me
+    if ( !(req.session.userId == 1)) {
+      res.redirect('/');
+      return;
+    }
     const today = new Date;
     const year = { year: today.getFullYear() };
     // create the rendering assets
@@ -13,17 +18,5 @@ router.get('/', async (req, res) => {
   }
 }); 
 
-
-router.get('/login', (req, res) => {
-  try {
-    // Render the login page
-
-    // for login page
-    res.redirect('/');
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;

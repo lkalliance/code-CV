@@ -3,9 +3,15 @@ const { Project } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-
-    // create the rendering assets
-    res.json({ message: 'got it' });
+    const projectData = await Project.create({
+      title: req.body.title,
+      description: req.body.description,
+      url: req.body.url,
+      image: req.body.image,
+      user_id: req.session.userId
+    });
+    const project = await projectData.get({ plain: true });
+    res.json({ object: project, message: 'got it' });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

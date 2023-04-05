@@ -1,0 +1,29 @@
+<h1>Log in</h1>
+{{#if userInfo.userId}}
+    <h2>You are logged in as {{userInfo.username}}</h2>
+{{/if}}
+<form id="login-form">
+    <label for "login-username">Username</label>
+    <input type="text" id="login-username" />
+    <label for "login-password">Password</label>
+    <input type="password" id="login-password" />
+    <button type="submit" id="login-button">Log in</button>
+    
+</form>
+
+{{#if exists.exists}}
+{{else}}
+<h1>Create</h1>
+<form id="create-form">
+    <label for "create-username">Username</label>
+    <input type="text" id="create-username" />
+    <label for "create-password">Password</label>
+    <input type="password" id="create-password" />
+    <button type="submit" id="login-button">Create</button>
+</form>
+{{/if}}
+
+<a href="/api/users/logout">Log out</a>
+
+
+<script src="/js/login.js"></script>
