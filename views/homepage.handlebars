@@ -1,3 +1,30 @@
-This is the actual page
+<div class="row">
+    <section class="col-12 col-sm-4 mb-3" id="about">
+        <img src="./assets/images/lee_head_shot.png" class="float-end float-sm-none ms-2" />
+        <h3>Minneapolis, MN</h3>
+        <p>
+            I've been involved in tech for many years, gradually getting closer to development from out on the fringes.
+            I'm looking forward to getting even more involved!
+        </p>
+    </section>
+    <section class="accordion col-12 col-sm-8" id="projects">
+{{#each projects}}
+<div class="accordion-item">
+    <h2><a href="https://be-for-reel.herokuapp.com" target="_blank" class="title">Be For Reel</a><a
+            href="https://github.com/lkalliance/Be-For-Reel" target="_blank">GitHub</a><button
+            class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item-0"
+            aria-expanded="true" aria-controls="item-0"><strong>Technologies: </strong><span> Node.js, Express, MySQL,
+                Sequelize, Handlebars, jQuery, Bootstrap</span></button></h2>
+    <div id="item-0" class="accordion-collapse collapse">
+        <div class="accordion-body">Be For Reel was a project I worked on as the leader of a five-person team in the
+            University of Minnesota Full Stack Coding Boot Camp. It included a username/password login, poll creation
+            tools tied into IMDb's public API, and polls enriched with IMDb data. Users could submit a comment with
+            their vote. The front page displayed six randomly-chosen polls, with the movie poster of one of its
+            randomly-chosen options. Users each had a profile page, which showed all their created quizzes and all their
+            submitted comments.</div>
+    </div>
+</div>
+{{/each}}
+    </section>
+</div>
 
-<button id="test-button">Click me</button>
