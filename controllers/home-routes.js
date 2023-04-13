@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     const projectData = await Project.findAll({
       attributes: ['title', 'description', 'url', 'image']
     })
-    const projects = await projectData.get({ plain: true })
+    const projects = await projectData.map((project) => project.get({ plain: true }))
 
     // create the rendering assets
     res.render('homepage', { year, projects });
