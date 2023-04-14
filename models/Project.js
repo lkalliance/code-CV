@@ -1,47 +1,19 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const mongoose = require("mongoose");
 
-class Project extends Model {}
+const techSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+});
 
-Project.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    url: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isUrl: true
-      }
-    },
-    image: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    featured: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    }
-  },
-  {
-    sequelize,
-    timestamps: true,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "project",
-  }
-);
+const projectSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String },
+  short_description: { type: String },
+  techs: [techSchema],
+  url: { type: String },
+  image: { type: String },
+  repo: { type: String },
+});
+
+const Project = mongoose.model("Project", projectSchema);
 
 module.exports = Project;

@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { User, Project } = require("../models");
-const fetch = require("axios");
 
 router.get("/", async (req, res) => {
   try {
@@ -8,12 +7,13 @@ router.get("/", async (req, res) => {
     const today = new Date();
     const year = { year: today.getFullYear() };
 
-    const fetchUrl = `http://localhost:${
-      process.env.PORT || 3001
-    }/api/projects`;
-    const projectData = await fetch(fetchUrl);
-    const projects = projectData.data;
-    console.log(projects);
+    const projectData = await Project.findAll({
+      attributes: ["title", "description", "url", "image"],
+    });
+    const projects = await projectData.map((project) =>
+      project.get({ plain: true })
+    );
+
     // create the rendering assets
     res.render("homepage", { year, projects });
   } catch (err) {

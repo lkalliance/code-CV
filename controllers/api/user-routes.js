@@ -1,25 +1,30 @@
-const router = require('express').Router();
-const bcrypt = require('bcrypt');
-const { User } = require('../../models');
+const router = require("express").Router();
+const bcrypt = require("bcrypt");
+const { User } = require("../../models");
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   // creates a new user
   try {
     // first check to make sure username doesn't already exist
     const dbUsername = await User.findOne({
-      where: { username: req.body.username }
+      where: { username: req.body.username },
     });
-    if ( dbUsername ) {
+    if (dbUsername) {
       // if it exists, let them know
-      res.status(400).json({ message: `Username '${req.body.username}' is taken. Please try again.`, type: 'username' });
+      res.status(400).json({
+        message: `Username '${req.body.username}' is taken. Please try again.`,
+        type: "username",
+      });
       return;
     }
-    
+
     // if they've got this far, go ahead and create the user
     const dbUserData = await User.create(req.body);
 
     if (!dbUserData) {
-      res.status(400).json({ message: 'Failed to create this user. Please try again.' });
+      res
+        .status(400)
+        .json({ message: "Failed to create this user. Please try again." });
       return;
     }
 
@@ -29,14 +34,13 @@ router.post('/', async (req, res) => {
       req.session.loggedIn = true;
       res.status(200).json(dbUserData);
     });
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     // Processes a user's attempt to log in
     const dbUserData = await User.findOne({
@@ -47,7 +51,10 @@ router.post('/login', async (req, res) => {
 
     // if the username doesn't exist, tell them
     if (!dbUserData) {
-      res.status(400).json({ message: `Username '${req.body.username}' does not exist. Please try again.`, type: 'username' });
+      res.status(400).json({
+        message: `Username '${req.body.username}' does not exist. Please try again.`,
+        type: "username",
+      });
       return;
     }
 
@@ -55,11 +62,14 @@ router.post('/login', async (req, res) => {
     const validPassword = await bcrypt.compare(
       req.body.password,
       dbUserData.password
-    )
+    );
 
     // if the password doesn't check out, tell them
     if (!validPassword) {
-      res.status(400).json({ message: 'Incorrect password. Please try again.', type: 'password'});
+      res.status(400).json({
+        message: "Incorrect password. Please try again.",
+        type: "password",
+      });
       return;
     }
 
@@ -71,7 +81,7 @@ router.post('/login', async (req, res) => {
       req.session.username = user.username;
       req.session.userId = user.id;
       req.session.loggedIn = true;
-      res.json({ message: 'You are logged in.'});
+      res.json({ message: "You are logged in." });
     });
   } catch (err) {
     console.log(err);
@@ -79,18 +89,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   // logs the user out
   if (req.session.loggedIn) {
     req.session.destroy(() => {
-      res.status(204).redirect('/');
+      res.status(204).redirect("/");
     });
   } else {
-    res.status(404).redirect('/');
+    res.status(404).redirect("/");
   }
 });
-
 
 module.exports = router;
