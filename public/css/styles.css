@@ -1,213 +1,217 @@
 :root {
-    --main: black;
-    --primary: rgb(9, 14, 63);
-    --secondary: rgb(48, 224, 218);
-    --tertiary: rgb(91, 91, 231);
-    --link: rgb(248, 218, 99);
-    --link-dark: rgb(201, 188, 0);
-    --secondary-link: rgb(148, 173, 250);
+  --main: black;
+  --primary: rgb(9, 14, 63);
+  --secondary: rgb(48, 224, 218);
+  --tertiary: rgb(91, 91, 231);
+  --link: rgb(248, 218, 99);
+  --link-dark: rgb(201, 188, 0);
+  --secondary-link: rgb(148, 173, 250);
 }
 
 html {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
-    flex-grow: 1;
-    position: relative;
-    margin: 0;
-    padding-bottom: 100px;
-    font-family: 'Anuphan', sans-serif;
+  flex-grow: 1;
+  position: relative;
+  margin: 0;
+  padding-bottom: 100px;
+  font-family: "Anuphan", sans-serif;
 }
 
 a {
-    font-family: 'Coda', sans-serif;
-    color: var(--link-dark);
-    text-decoration: none;
+  font-family: "Coda", sans-serif;
+  color: var(--link-dark);
+  text-decoration: none;
 }
 
 p {
-    font-size: .8em;
+  font-size: 0.8em;
 }
 
 a:hover {
-    color: var(--secondary-link);
+  color: var(--secondary-link);
 }
 
 header {
-    background-color: var(--primary);
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
+  background-color: var(--primary);
+  color: white;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 header h1 {
-    font-size: 1.8em;
-    line-height: 1.1em;
-    font-family: 'Gruppo', sans-serif;
-    margin-bottom: 0;
+  font-size: 1.8em;
+  line-height: 1.1em;
+  font-family: "Gruppo", sans-serif;
+  margin-bottom: 0;
 }
 
 header h1 span {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 header a {
-    color: var(--link);
-    text-decoration: none;
-    font-size: .8em;
-    line-height: 1.4em;
+  color: var(--link);
+  text-decoration: none;
+  font-size: 0.8em;
+  line-height: 1.4em;
 }
 
 header a:hover {
-    color: var(--secondary-link);
+  color: var(--secondary-link);
 }
 
 div#site-header {
-    position: relative;
-    padding-right: 55px;
+  position: relative;
+  padding-right: 55px;
 }
 
 nav.navbar,
 nav .container-fluid {
-    padding: 0;
+  padding: 0;
 }
 
 nav ul.navbar-nav {
-    flex-direction: row;
+  flex-direction: column;
+}
+
+nav ul.navbar-nav li {
+  text-align: right;
 }
 
 header button.navbar-toggler {
-    position: absolute;
-    bottom: 3px;
-    right: 0;
-    padding: 6px;
-    color: rgba (255, 255, 255, .5);
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, .5);
-    border-radius: 4px;
+  position: absolute;
+  bottom: 3px;
+  right: 0;
+  padding: 6px;
+  color: rgba (255, 255, 255, 0.5);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
 }
 
 header button.navbar-toggler span {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    display: inline-block;
-    width: 20px;
-    height: 15px;
-    vertical-align: middle;
-    background-position: center;
-    background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  display: inline-block;
+  width: 20px;
+  height: 15px;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #about {
-    text-align: right;
+  text-align: right;
 }
 
 #about img {
-    width: 100px;
+  width: 100px;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 15px;
-    text-align: center;
-    background-color: var(--primary);
-    color: var(--secondary);
-    letter-spacing: .2rem;
-    font-family: 'Gruppo', cursive;
-    font-size: 1em;
-    line-height: 1.2em;
-    font-weight: 500;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  background-color: var(--primary);
+  color: var(--secondary);
+  letter-spacing: 0.2rem;
+  font-family: "Gruppo", cursive;
+  font-size: 1em;
+  line-height: 1.2em;
+  font-weight: 500;
 }
 
 main {
-    padding: 15px;
+  padding: 15px;
 }
 
 main .accordion-item {
-    border: 1px solid var(--primary);
-    /* border-radius: 4px; */
-    padding: 10px;
+  border: 1px solid var(--primary);
+  /* border-radius: 4px; */
+  padding: 10px;
 }
 
-main h2, h3 {
-    font-family: 'Coda', sans-serif;
+main h2,
+h3 {
+  font-family: "Coda", sans-serif;
 }
 
 main h2 {
-    font-size: 1em;
-    margin: 0;
+  font-size: 1em;
+  margin: 0;
 }
 
 main h3 {
-    font-size: .9em;
-    font-weight: 300;
-    margin: 8px 0;
+  font-size: 0.9em;
+  font-weight: 300;
+  margin: 8px 0;
 }
 
 main h2 strong,
 main h2 span {
-    color: var(--tertiary);
-    margin-right: 6px;
-    font-family: 'Anuphan', sans-serif;
-    display: inline;
-    font-size: .8em;
+  color: var(--tertiary);
+  margin-right: 6px;
+  font-family: "Anuphan", sans-serif;
+  display: inline;
+  font-size: 0.8em;
 }
 
 main h2 strong {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 main h2 .accordion-button {
-    margin-top: 6px;
+  margin-top: 6px;
 }
 
 main h2 .accordion-button:not(.collapsed) {
-    background-color: transparent;
-    box-shadow: none;
+  background-color: transparent;
+  box-shadow: none;
 }
 
 main .accordion-body {
-    font-family: 'Anuphan', sans-serif;
-    padding: 0;
-    font-size: .8em;
-    margin-top: 12px;
+  font-family: "Anuphan", sans-serif;
+  padding: 0;
+  font-size: 0.8em;
+  margin-top: 12px;
 }
 
 main h2 .accordion-button {
-    display: block;
-    padding: 0 25px 0 0;
+  display: block;
+  padding: 0 25px 0 0;
 }
 
 main h2 .accordion-button::after {
-    position: absolute;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 main h2 a.title {
-    color: var(--primary);
-    margin-right: 12px;
-    font-weight: 500;
-    font-size: 1.2em;
+  color: var(--primary);
+  margin-right: 12px;
+  font-weight: 500;
+  font-size: 1.2em;
 }
-
 
 /* For login and project forms */
 
 label {
-    display: block;
-    margin-top: 20px;
+  display: block;
+  margin-top: 20px;
 }
 
 input {
-    width: 300px;
+  width: 300px;
 }
 
 textarea {
-    width: 300px;
-    height: 300px;
+  width: 300px;
+  height: 300px;
 }
