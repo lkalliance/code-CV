@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     }/api/projects`;
     const projectData = await fetch(fetchUrl);
     const projects = projectData.data;
-    console.log(projects);
+
     // create the rendering assets
     res.render("homepage", { year, projects });
   } catch (err) {

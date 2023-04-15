@@ -76,7 +76,11 @@ nav .container-fluid {
 }
 
 nav ul.navbar-nav {
-  flex-direction: row;
+  flex-direction: column;
+}
+
+nav ul.navbar-nav li {
+  text-align: right;
 }
 
 header button.navbar-toggler {

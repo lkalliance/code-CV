@@ -46,6 +46,14 @@ connection.once("open", async () => {
       repo: "https://github.com/lkalliance/you-get-a-tech-blog",
     },
     {
+      title: "Moon Fish",
+      description:
+        "Moon Fish was a project I worked on as the leader of a four-person team in the University of Minnesota Full Stack Coding Boot Camp. It combined data from public API's from GeoApify.com, OpenWeatherMap.org, and Solunar.org and presented it as a comprehensive fishing location interface. A user would search on a location and get the week's weather and solunar chart.",
+      techs: ["HTML", "Javascript", "Milligram"],
+      url: "https://lkalliance.github.io/Moon-Fish/",
+      repo: "https://github.com/lkalliance/Moon-Fish",
+    },
+    {
       title: "Ringnut Jeopardy",
       description:
         "I coded this way back before I had gotten any training, in a distant youth: a time when I was just teaching myself JavaScript as I went along. It was a fun project for the benefit of a social group of Lord of the Rings fans.",
@@ -53,14 +61,20 @@ connection.once("open", async () => {
       url: "https://lkalliance.github.io/old-jeopardy/index.htm",
       repo: "https://github.com/lkalliance/old-jeopardy",
     },
+    {
+      title: "Dragging Exercise",
+      description:
+        "I was planning a web-based interface for an existing product at work, and I created this snippet of code in vanilla Javascript as a proof of concept. No libraries or frameworks. Drag the ten-second strip to navigate or click on the full disclosure below it. Control-click to create a report strip, or option-click-drag to create movable calipers to measure heart rate. This project was never begun beyond this.",
+      techs: ["HTML", "CSS", "JavaScript"],
+      url: "https://lkalliance.github.io/old-dragging/",
+      repo: "https://github.com/lkalliance/old-dragging",
+    },
   ];
 
   await User.create(user);
   await Project.collection.insertMany(projects);
 
   // loop through the saved applications, for each application we need to generate a application response and insert the application responses
-  console.table(user);
-  console.table(projects);
   console.info("Seeding complete! 🌱");
   process.exit(0);
 });

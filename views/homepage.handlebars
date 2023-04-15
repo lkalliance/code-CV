@@ -1,14 +1,19 @@
 <div class="row">
   <section class="col-12 col-sm-4 mb-3" id="about">
-    <img
-      src="./assets/images/lee_head_shot.png"
-      class="float-end float-sm-none ms-2"
-    />
+    <img src="/images/lee_head_shot.png" class="float-end float-sm-none ms-2" />
     <h3>Minneapolis, MN</h3>
     <p>
-      I've been involved in tech for many years, gradually getting closer to
-      development from out on the fringes. I'm looking forward to getting even
-      more involved!
+      I am a person that has worn many hats. I've been in desktop publishing,
+      athletics publicity, software training and support, writing, and most
+      especially front end web coding. I've worked for educational institutions,
+      for startups, for small companies and for major corporations. Now I'm
+      looking for a new hat.
+    </p>
+    <p>
+      As a current student in the University of Minnesota Full Stack Coding
+      Bootcamp, I have experience in all the areas I've mentioned above, in
+      addition to the latest in Javascript, CSS, HTML, jQuery, Node.js, SQL,
+      MongoDB and React.
     </p>
   </section>
   <section class="accordion col-12 col-sm-8" id="projects">
@@ -30,7 +35,7 @@
             aria-controls="item-{{project._id}}"
           ><strong>Technologies: </strong><span>
               {{#each project.techs as |tech|}}
-                {{tech}}
+                {{tech}}{{#if @last}}{{else}}, {{/if}}
               {{/each}}
             </span></button></h2>
         <div id="item-{{project._id}}" class="accordion-collapse collapse">
