@@ -4,8 +4,9 @@
   --secondary: rgb(48, 224, 218);
   --tertiary: rgb(91, 91, 231);
   --link: rgb(248, 218, 99);
-  --link-dark: rgb(201, 188, 0);
+  --link-dark: rgb(181, 169, 0);
   --secondary-link: rgb(148, 173, 250);
+  --pale-background: rgb(232, 235, 247);
 }
 
 html {
@@ -18,8 +19,26 @@ body {
   flex-grow: 1;
   position: relative;
   margin: 0;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
   font-family: "Anuphan", sans-serif;
+}
+
+@keyframes section-from-right {
+  from {
+    left: 1000px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes section-from-left {
+  from {
+    left: -1000px;
+  }
+  to {
+    left: 0;
+  }
 }
 
 a {
@@ -75,12 +94,12 @@ nav .container-fluid {
   padding: 0;
 }
 
-nav ul.navbar-nav {
-  flex-direction: column;
-}
-
 nav ul.navbar-nav li {
   text-align: right;
+}
+
+nav ul.navbar-nav {
+  flex-direction: column;
 }
 
 header button.navbar-toggler {
@@ -104,12 +123,27 @@ header button.navbar-toggler span {
   background-repeat: no-repeat;
 }
 
+#projects {
+  max-width: 500px;
+  position: relative;
+
+  animation: section-from-right;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
 #about {
-  text-align: right;
+  position: relative;
+
+  animation: section-from-left;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
 }
 
 #about img {
   width: 100px;
+  border: 3px solid var(--primary);
+  border-radius: 6px;
 }
 
 footer {
@@ -132,9 +166,32 @@ main {
 }
 
 main .accordion-item {
-  border: 1px solid var(--primary);
-  /* border-radius: 4px; */
-  padding: 10px;
+  border: none;
+  padding: 20px;
+}
+
+main .accordion-item .accordion-body {
+  background-repeat: no-repeat;
+  background-position: left top;
+  padding: 120px 0 0;
+}
+
+main .accordion-item:nth-of-type(odd) .accordion-body {
+  background-image: linear-gradient(transparent, var(--pale-background) 120px),
+    var(--bg-image);
+}
+
+main .accordion-item:nth-of-type(even) .accordion-body {
+  background-image: linear-gradient(transparent, white 120px, white 500px),
+    var(--bg-image);
+}
+
+main .accordion-item:nth-of-type(odd) {
+  background-color: var(--pale-background);
+}
+
+main .accordion-button {
+  background-color: transparent;
 }
 
 main h2,
@@ -160,6 +217,12 @@ main h2 span {
   font-family: "Anuphan", sans-serif;
   display: inline;
   font-size: 0.8em;
+}
+
+main h2 span.desc {
+  color: black;
+  display: block;
+  margin-top: 6px;
 }
 
 main h2 strong {
@@ -214,4 +277,23 @@ input {
 textarea {
   width: 300px;
   height: 300px;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 576px) {
+  main div.row {
+    margin: 0 auto;
+    max-width: 750px;
+  }
+
+  #about {
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  nav ul.navbar-nav {
+    flex-direction: row;
+  }
 }
