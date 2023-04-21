@@ -290,6 +290,14 @@ textarea {
   #about {
     max-width: 250px;
   }
+
+  div#site-header {
+    padding-right: 0;
+  }
+
+  nav ul.navbar-nav {
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 400px) {
