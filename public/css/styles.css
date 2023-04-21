@@ -48,7 +48,8 @@ a {
 }
 
 p {
-  font-size: 0.8em;
+  font-size: 1em;
+  line-height: 1.2em;
 }
 
 a:hover {
@@ -63,8 +64,8 @@ header {
 }
 
 header h1 {
-  font-size: 1.8em;
-  line-height: 1.1em;
+  font-size: 2em;
+  line-height: 1em;
   font-family: "Gruppo", sans-serif;
   margin-bottom: 0;
 }
@@ -76,7 +77,7 @@ header h1 span {
 header a {
   color: var(--link);
   text-decoration: none;
-  font-size: 0.8em;
+  font-size: 0.9em;
   line-height: 1.4em;
 }
 
@@ -231,6 +232,7 @@ main h2 strong {
 
 main h2 .accordion-button {
   margin-top: 6px;
+  font-size: 1.1em;
 }
 
 main h2 .accordion-button:not(.collapsed) {
@@ -241,7 +243,7 @@ main h2 .accordion-button:not(.collapsed) {
 main .accordion-body {
   font-family: "Anuphan", sans-serif;
   padding: 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-top: 12px;
 }
 
