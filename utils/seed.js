@@ -24,7 +24,7 @@ connection.once("open", async () => {
       ],
       url: "https://be-for-reel.herokuapp.com",
       repo: "https://github.com/lkalliance/Be-For-Reel",
-      image: "/images/be-for-reel.png",
+      image: "/images/be-for-reel-3.png",
     },
     {
       title: "You Get a Tech Blog!",
