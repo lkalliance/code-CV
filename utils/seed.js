@@ -57,6 +57,16 @@ connection.once("open", async () => {
       image: "/images/moonfish-screen-shot.png",
     },
     {
+      title: "Code Portfolio",
+      description:
+        "Since we live in a time of movie remakes, why not remake my code portfolio? This version is done with a different set of technologies than the ones I used to create what you're looking at right now. Most importantly, it's a React.js application.",
+      short_description: "Same stuff. Different code.",
+      techs: ["React.js", "Material UI", "Node.js"],
+      url: "https://lkalliance.github.io/code-portfolio/",
+      repo: "https://github.com/lkalliance/code-portfolio",
+      image: "/images/coding-portfolio-screenshot.png",
+    },
+    {
       title: "Ringnut Jeopardy",
       description:
         "I coded this way back before I had gotten any training, in a distant youth: a time when I was just teaching myself JavaScript as I went along. It was a fun project for the benefit of a social group of Lord of the Rings fans.",
